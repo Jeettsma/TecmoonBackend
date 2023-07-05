@@ -1,0 +1,34 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promocion</title>
+    <link rel="stylesheet" href="{% static '/css/modal.css' %}">
+    <link rel="stylesheet" href="{% static '/css/estilos.css' %}">
+</head>
+
+<body>
+    <section class="modal">
+        <div class="modal-container">
+            <img class="modal-img" src="{% static '/img/200w.gif' %}">
+            <h2 class="Tittle"> Bienvenido a Technology Moon</h2>
+            <p class="psragraph">En tu primera compra te llevaras un 20% de descuento en compras sobre $200.000 </p>
+            <div class="btns">
+                <a href=# class="open-view">Iniciar sesion</a>
+                <a href=# class="open-guide">Registrarse</a>
+            </div>
+            <a href="{% url 'home' %}" class="close">&times;</a>
+        </div>
+    </section>
+</body>
+
+</html>
+
+<!--─▄───▄
+─▄█▄─█▀█▀█─▄█▄
+▀▀████▄█▄████▀▀
+─────▀█▀█▀-->

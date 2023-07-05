@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+    <h1>Carrito de compras</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in carrito %}
+                    <tr>
+                        <td>{{ producto.nombre }}</td>
+                        <td>{{ producto.precio }}</td>
+                        <td>{{ producto.cantidad }}</td>
+                        <td>
+                            <a class="btn btn-danger" href="{% url 'eliminar_del_carrito' producto.id %}">Eliminar</a>
+                            <a class="btn btn-primary" href="{% url 'sumar_cantidad' producto.id %}">Sumar</a>
+                            <a class="btn btn-primary" href="{% url 'restar_cantidad' producto.id %}">Restar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p>Total: {{ total }}</p>
+
+        <a class="btn btn-danger" href="{% url 'vaciar_carrito' %}">Vaciar carrito</a>
+    </form>
+
+<br><br><br><br><br>   <br><br><br><br><br>
+<br><br><br><br><br>  <br><br><br><br><br>
+
+
+{% endblock contenido %}
+

@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
+{% block titulo %}
+<title>Technology Moon</title>
+{% endblock %}
+{% block contenido %}
+
+
+   <!-- Carrousel -->
+   <section>
+    <div id="carrusel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            {% for p in transiciones %}
+            <li data-target="#carrusel" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+            {% endfor %}
+        </ol>
+        <div class="carousel-inner">
+            {% for p in transiciones %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}"
+                style="background-image: url('{{ p.imagen.url }}'); background-size: cover;">
+                <div class="carousel-caption d-block">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carrusel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carrusel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</section>
+
+
+<!-- Contenido Fuera del Encabezado -->
+<div class="contenido_wrap">
+
+    <!-- Carrusel de Notebooks -->
+    <section class="row">
+        {% load humanize %}
+        <article id="Oferta" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>Notebooks</h1>
+        </article>
+
+        <div class="owl-carousel owl-theme">
+            {% for p in productos_notebooks %}
+            <div class="categoria">
+                <a href="{% url 'notebook_detail' p.id %}">
+                    {% if p.imagen %}
+                    <img src="{{ p.imagen.url }}" alt="">
+                    {% endif %}
+                </a>
+                <p>
+                    <h6><span class="price">${{ p.precio | intcomma }}</span></h6>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Carrusel de PCs -->
+    <section class="row">
+        {% load humanize %}
+        <article id="Oferta" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>PCs</h1>
+        </article>
+
+        <div class="owl-carousel owl-theme">
+            {% for p in productos_pcs %}
+            <div class="categoria">
+                <a href="{% url 'pc_detail' p.id %}">
+                    {% if p.imagen %}
+                    <img src="{{ p.imagen.url }}" alt="" >
+                    {% endif %}
+                </a>
+                <p>
+                    <h6><span class="price">${{ p.precio | intcomma }}</span></h6>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Carrusel de Celulares -->
+    <section class="row">
+        {% load humanize %}
+        <article id="Oferta" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>Celulares</h1>
+        </article>
+
+        <div class="owl-carousel owl-theme">
+            {% for p in productos_celulares %}
+            <div class="categoria">
+                <a href="{% url 'celular_detail' p.id %}">
+                    {% if p.imagen %}
+                    <img src="{{ p.imagen.url }}" alt="">
+                    {% endif %}
+                </a>
+                <p>
+                    <h6><span class="price">${{ p.precio | intcomma }}</span></h6>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+</div>
+
+{% endblock contenido %}

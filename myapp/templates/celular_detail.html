@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+{% block css %}
+  {% load static %}
+ 
+  <style>
+    .product-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .product-page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .product-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .product-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .product-details {
+      flex: 1;
+      padding: 0 40px;
+    }
+
+    .product-details h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .product-details p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .product-details button {
+      background-color: #000;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .product-details button + button {
+      margin-left: 10px;
+    }
+  </style>
+{% endblock %}
+
+<div class="product-container">
+  {% load humanize %}
+  <div class="product-page">
+    <div class="product-image">
+      <img src="{{ celular.imagen.url }}" alt="">
+    </div>
+    <div class="product-details">
+      <h1>{{ celular.nombre | title }}</h1>
+      <h4>{{ celular.descripcion }}</h4>
+      <h2>Precio: ${{ celular.precio| intcomma}}</h2>
+      <form action="{% url 'agregar_al_carrito' celular.id 'Celulares' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="dark-button">Añadir al carrito</button>
+      </form>
+   
+    </div>
+  </div>
+</div>
+
+<!-- Replace "test" with your own sandbox Business account app client ID -->
+<script src="https://www.paypal.com/sdk/js?client-id=AXb-rt8Zc-be2l5InQfKzZMjOuwLZHz2NYnal6rUCbpTUvNXgQb_-qjRIutmxVttI6uDWx69-q1ip46w&currency=USD"></script>
+<!-- Set up a container element for the button -->
+<script src="https://www.paypal.com/sdk/js?client-id=AXb-rt8Zc-be2l5InQfKzZMjOuwLZHz2NYnal6rUCbpTUvNXgQb_-qjRIutmxVttI6uDWx69-q1ip46w&enable-funding=venmo">
+</script>
+ <!-- Set up a container element for the button -->
+ <div id="paypal-button-container"></div>
+ <script>
+   paypal.Buttons({
+     // Order is created on the server and the order id is returned
+     createOrder: function(data, actions){
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: 100
+          }
+        }]
+      })
+     },
+     onCancel: function(data){
+      alert("Pago Cancelado!")
+     },
+     // Finalize the transaction on the server after payer approval
+     onApprove(data) {
+       return fetch("/my-server/capture-paypal-order", {
+         method: "POST",
+         headers: {
+           "Content-Type": "application/json",
+         },
+         body: JSON.stringify({
+           orderID: data.orderID
+         })
+       })
+       .then((response) => response.json())
+       .then((orderData) => {
+         // Successful capture! For dev/demo purposes:
+         console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+         const transaction = orderData.purchase_units[0].payments.captures[0];
+         alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+         // When ready to go live, remove the alert and show a success message within this page. For example:
+         // const element = document.getElementById('paypal-button-container');
+         // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+         // Or go to another URL:  window.location.href = 'thank_you.html';
+       });
+     }
+   }).render('#paypal-button-container');
+ </script>
+
+
+<br><br><br><br>
+{% endblock contenido %}
+ 

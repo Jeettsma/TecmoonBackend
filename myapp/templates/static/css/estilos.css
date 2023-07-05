@@ -1,0 +1,488 @@
+@import url(main.css);
+@import url(font.css);
+@import url(flexboxgrid.css);
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 0;
+}
+
+body{
+    background-image: linear-gradient(135deg, #A9A9A9, #808080, #696969, #778899, #708090, #2F4F4F, #695175, #876c96);
+    background-size: 500%;
+    animation: animacioncolor 50s infinite ;
+}
+@keyframes animacioncolor{
+0%{
+    background-position: 0% 50%;
+}
+50%{
+    background-position: 100% 50%;
+}
+100%{
+    background-position: 0% 50%;
+}
+}
+
+body{
+    font: 15px Arial, Helvetica, sans-serif ;
+    padding: 0;
+    margin: 0;
+    background-color: #2f3849;
+}
+
+/*estilos globales*/
+.contenedor{
+    width: 70%;
+    max-width: 80%;
+    margin: 0 auto;
+    overflow: hidden; 
+}
+
+.contenedor h1{
+    text-align: center;
+    font-family: 'Press Start 2P', cursive; 
+    margin-bottom: 50px;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    background-color: #000000;
+}
+
+nav ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+
+nav a{
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    padding: 10px;
+}
+
+.boton1{
+    height: 38px;
+    background: #000000;
+    border:0;
+    padding-left: 20px;
+    padding-right: 110px;
+    color:#fff;
+    margin-top: 20px;
+    clear: both;
+    float: left;
+    margin-left: 450px;
+    width: 120px;
+    height: 50px;
+    
+}
+/* Estilos base */
+.precio {
+    font-size: 24px;
+  }
+  
+  /* Ajuste para pantallas pequeñas */
+  @media (max-width: 767px) {
+    .precio {
+      font-size: 18px;
+    }
+  }
+  
+  /* Ajuste para pantallas medianas */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .precio {
+      font-size: 20px;
+    }
+  }
+  
+  /* Ajuste para pantallas grandes */
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .precio {
+      font-size: 22px;
+    }
+  }
+
+/*Encabezado*/
+header{
+   
+    color: #fff;
+    padding-top: 30px;
+    min-height: 100px;
+    border-bottom: 5px solid #000000;
+}
+
+header li,a,button{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 16px;
+    font: Arial;
+}
+
+
+
+
+header .resaltado, header .actual a{
+    color: #fff;
+    font-weight: bold;
+    
+}
+
+header a:hover{
+    color: #fff;
+    font-weight: bold;
+   
+}
+
+/* Slider */
+
+#slide{
+    text-align: center;
+    position: relative;
+    margin: auto;
+    width: 87.7%;
+    overflow: hidden;
+}
+
+#slide ul{
+    position: relative;
+    margin: auto;
+    height: auto;
+    width: 300%;
+    background-color: rgba(255, 255, 255, 0.753); 
+    
+}
+ 
+#slide ul li{
+    float:left;
+    width: 33.3%;
+}
+
+#slide ul li img{
+    width: 80%;
+
+}
+
+#left{
+    position: absolute;
+    top: 40%;
+    left: 12%;
+    font-size:2em;
+    color:#fff;
+}
+
+#right{
+    position: absolute;
+    top: 40%;
+    right: 12%;
+    font-size:2em;
+    color:#fff;
+}
+
+/*contenido general*/
+.contenido_wrap{
+    width: 70%;
+    margin: auto;
+    padding-bottom: 20px;    
+    
+   
+    position: relative;
+    z-index: 998;
+    padding-top: 30px;
+    overflow: hidden;
+}
+
+.categoria{
+    text-align: center;
+    
+    justify-content: center;
+    margin-left: 5px; 
+}
+
+.categoria h1 h3{
+    margin-top:-15px;
+}
+
+/*Footer*/
+footer{
+    height: 300px;
+    background-color: #0C0B0B ;
+ }
+
+ footer > .marcas{
+    width: 100%;
+    height: 80px;
+    background-color: #2E2D2C;
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+ }
+
+ footer> .logo{
+    display: flex;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 80px);
+ }
+
+ footer >.logo > img{
+    width: 150px;
+ }
+ footer > .marcas > img{
+   width: 100px;
+ }
+
+.boton2{
+    color:#fff;
+    background: #000;
+    margin-left: auto   ;
+    height: 35px;
+    clear: both;
+}
+/*Ofertas*/
+#Oferta{
+    margin-top: 3   0px;
+    text-align: center;   
+}
+
+#Oferta h1{
+    font-size: 25px;
+    font-family: 'Press Start 2P', cursive;
+}
+#Oferta h5{
+    margin-top: 10px;
+    font: 18px Arial, Helvetica, sans-serif ;
+}
+
+.catalogo{
+    text-align: center;
+}
+/*Registrar*/
+input{
+    float: left;
+    width: 200px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+label{
+    
+    width: 400px;
+    clear: both;
+    float: left;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+select{
+    float: left;
+}
+
+.carousel-item img {
+    filter: grayscale(75%);
+}
+
+.carousel-item {
+    min-height: 250px;
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#carrusel {
+    width: 100%;
+    height: 500px;
+}
+
+@media (min-width:768px) {
+    .carousel-item {
+        min-height: 500px;
+        background-attachment: fixed;
+    }
+@media screen and (min-width: 768px){
+    nav ul{
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    nav li{
+        flex: 1 1 0;
+    }
+
+    #left{
+        position: absolute;
+        top: 40%;
+        left: 12%;
+        font-size:2em;
+        color:#fff;
+    }
+    
+    #right{
+        position: absolute;
+        top: 35%;
+        right: 12%;
+        font-size:2em;
+        color:#fff;
+    }
+    #seccionRegistro {
+
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+/* Login */
+
+#seccionLogin{
+    background-repeat: no-repeat;
+    background-size: cover;
+
+/*Caratulas*/
+.categoria h1{
+    margin-top: -15px;
+    text-align: center;
+}
+.carrito {
+	margin: 50px auto;
+	padding: 20px;
+	max-width: 600px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+
+th, td {
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #ddd;
+}
+
+th {
+	background-color: #f5f5f5;
+}
+
+input[type="number"] {
+	width: 50px;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+}
+
+button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #0f0f0f;
+}
+
+.formulario {
+	margin: 50px auto;
+	padding: 20px;
+	max-width: 600px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+h1 {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+label {
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+	padding: 10px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+}
+
+textarea {
+	height: 100px;
+}
+
+button {
+	background-color: #000000;
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+}
+button{
+    background-color: #4CAF50;
+}
+
+button:hover {
+	background-color: #000000;
+}
+
+.error {
+	color: red;
+	font-size: 0.8em;
+	margin-top: -10px;
+	margin-bottom: 10px;
+}
+
+.categoria h3 h5{
+    margin-top: -20px;
+    text-align: center;
+}
+input, textarea, select {
+    width: 100%
+
+/* Error en el formulario */
+.error-control {
+    border: 1px solid red;
+}
+  
+label.error {
+    color: red;
+    width: 300px;
+    font-size: 0.8em;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+h1{
+    color: #ff0000;
+}
+
+h3{
+    color: #ff0000;
+}
+
+
+}

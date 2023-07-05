@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>PC</title>
+{% endblock %}
+
+{% block contenido %}
+<div class="contenido_wrap">
+  <!-- Sección de Ofertas -->
+  <section class="row">
+    {% load humanize %}
+    <article id="Oferta" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div>
+        <h1>¡Conoce nuestro catálogo de PC!</h1>
+        <br>
+      </div>
+      <div class="row">
+        {% for p in productos_pcs %}
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="categoria">
+              {% if p.imagen %}
+              <img src="{{ p.imagen.url }}" class="card-img-top" alt="">
+              {% endif %}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ p.nombre | title }}</h5>
+              <h5 class="card-subtitle mb-2 text-muted">${{ p.precio | intcomma }}</h5>
+              <a href="{% url 'pc_detail' p.id %}" class="btn btn-dark">Ver producto</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </article>
+  </section>
+</div>
+{% endblock %}

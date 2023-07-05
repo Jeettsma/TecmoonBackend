@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+{% load humanize %}
+<div class="card">
+    <div class="card-body">
+        <h2>Productos</h2>
+        <div class="container">
+            <div class="btn-group mb-3" role="group" aria-label="Product Filters">
+                <a href="{% url 'listar_notebooks' %}" class="btn btn-primary">Notebooks</a>
+                <a href="{% url 'listar_pcs' %}" class="btn btn-primary">PCs</a>
+                <a href="{% url 'listar_celulares' %}" class="btn btn-primary">Celulares</a>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Marca</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in entity %}
+                        <tr>
+                            <td>{{ p.nombre|title }}</td>
+                            <td>{{ p.precio|intcomma }}</td>
+                            <td>{{ p.marca|title }}</td>
+                            <td>
+                                {% if p.clase == 'notebook' %}
+                                    <a href="{% url 'modificar_notebook' p.id %}" class="btn btn-info">Modificar Notebook</a>
+                                    <a href="{% url 'eliminar_notebook' p.id %}" class="btn btn-danger btn-info">Eliminar Notebook</a>
+                                {% elif p.clase == 'pc' %}
+                                    <a href="{% url 'modificar_pc' p.id %}" class="btn btn-info">Modificar PC</a>
+                                    <a href="{% url 'eliminar_pc' p.id %}" class="btn btn-danger btn-info">Eliminar PC</a>
+                                {% elif p.clase == 'celular' %}
+                                    <a href="{% url 'modificar_celular' p.id %}" class="btn btn-info">Modificar Celular</a>
+                                    <a href="{% url 'eliminar_celular' p.id %}" class="btn btn-danger btn-info">Eliminar Celular</a>
+                                {% endif %}
+
+                                
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% include 'paginator.html' %}
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

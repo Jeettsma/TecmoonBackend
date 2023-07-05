@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block js %}
+<script src="validacion.js"></script>
+{% endblock %}
+{% block titulo %}
+<title>Contactanos</title>
+{% endblock %}
+{% block contenido %}
+
+<body>
+    <section id="contacto" class="container-fluid smooth-scroll">
+        <div class="row justify-content-md-center py-5">
+            <div class="col col-md-6 col-12">
+                <div class="card p-3">
+                    <div class="card-body text-center">
+                        <h4 class=" display-4 card-title">Contacto</h4>
+
+                    </div>
+                    <div class="container">
+                        <h3>Haznos saber como fue tu experiencia y si tienes alguna duda o reclamo</h3>
+                        <form target="_blank" action="https://formsubmit.co/tecnolocymoon@gmail.com" method="POST">
+                          <div class="form-group">
+                            <div class="form-row">
+                              <div class="col">
+                                <input type="text" name="name" class="form-control" placeholder="Nombre Completo" required>
+                              </div>
+                              <div class="col">
+                                <input type="email" name="email" class="form-control" placeholder="Correo electronico" required>
+                              </div>
+                              <div class="col">
+                                <input type="text" name="cell" class="form-control" placeholder="Numero Celular" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <textarea placeholder="Escribenos tu mensaje..." class="form-control" name="message" rows="10" required></textarea>
+                          </div>
+                          <button type="submit" class="btn btn-lg btn-dark btn-block">Enviar</button>
+                        </form>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock contenido %}
+
+
+
