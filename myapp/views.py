@@ -324,3 +324,5 @@ def listar_celulares(request):
     productos_celulares = producto_celulare.objects.all()
     return render(request, 'producto/listar.html', {'entity': productos_celulares})
 
+
+
